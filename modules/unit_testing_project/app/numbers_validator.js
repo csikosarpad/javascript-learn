@@ -20,9 +20,9 @@ class NumbersValidator {
      * @memberof NumbersValidator
      */
     isNumberEven(number) {
-        const typofVariable = typeof number;
-        if(typofVariable !== 'number'){
-            throw new Error(`[${number})] is not of type "Number" it is of type "${typofVariable}"`);
+        const typeOfVariable = typeof number;
+        if(typeOfVariable !== 'number'){
+            throw new Error(`[${number})] is not of type "Number" it is of type "${typeOfVariable}"`);
         } else {
             return number % 2 === 0;
         }
