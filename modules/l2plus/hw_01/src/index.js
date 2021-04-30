@@ -17,6 +17,7 @@ console.log(BST.binarySearch("name"));
 console.log(BST.binarySearch("name", "Michael Miller"));
 // not exists
 console.log(BST.binarySearch("name", "Raffael Gonzales"));
+console.log(BST.binarySearch("salary", 17));
 
 /*module.exports = {
     BinarySearchTree,

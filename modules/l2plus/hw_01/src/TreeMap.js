@@ -88,32 +88,42 @@ class BinarySearchTree extends BinaryTree {
       return "Please give me valid search value.";
     }
 
+    const sortBySalary = (a, b) => {
+      return a.salary - b.salary;
+    };
+
+    const sortByName = (a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    };
+
     let flattedItems = this.valuesToArray();
 
-    function sortBySalary() {
-      flattedItems.sort(function (a, b) {
-        return a.salary - b.salary;
-      });
-      return flattedItems;
-    }
-
-    function sortByName() {
-      flattedItems.sort(function (a, b) {
-        if (a.name < b.name) {
-          return -1;
+    const sortFunction = key === "name" ? sortByName : sortBySalary;
+    const sortedArray = flattedItems.sort(sortFunction);
+    const findElement = function (array, start, end, value) {
+      if (end >= start) {
+        const middle = Math.floor(end - start / 2);
+        if (array[middle][key] == value) {
+          return `The searched element where ${key} = ${value} is on the base of the arrangment: '${sortFunction.name}' on the index: ${middle}.`;
         }
-        if (a.name > b.name) {
-          return 1;
+        if (array[middle][key] > value) {
+          return findElement(array, start, middle - 1, value);
+        } else {
+          return findElement(array, middle + 1, end, value);
         }
-        return 0;
-      });
-      return flattedItems;
-    }
+      }
+      return `The searched element where ${key} = ${value} not exists.`;
+    };
 
-    const sortedByName = sortByName();
-    const sortedBySalary = sortBySalary();
-
-    const findElement = (array, start, end, value) => {};
+    timeMeasure("stop", "binarySearch");
+    console.log(stateTime.result);
+    return findElement(sortedArray, 0, sortedArray.length - 1, value);
 
     /*const findElement = (key) => {
       let sResult = null;
