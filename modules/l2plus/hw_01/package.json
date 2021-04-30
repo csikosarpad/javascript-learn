@@ -1,0 +1,43 @@
+{
+  "name": "hw_1",
+  "version": "1.0.0",
+  "description": "Implementation of Binary Search Tree in Javascript",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint ./",
+    "coverage": "nyc npm run test"
+  },
+  "keywords": [
+    "Binary search",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^7.22.0",
+    "eslint-config-google": "^0.14.0",
+    "husky": "^5.2.0",
+    "mocha": "^8.3.2",
+    "mochawesome": "^6.2.2",
+    "nyc": "^15.1.0"
+  },
+  "nyc": {
+    "reporter": "html",
+    "check-coverage": true,
+    "branches": 50,
+    "lines": 80,
+    "functions": 80,
+    "statements": 80
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run coverage"
+    }
+  }
+}
