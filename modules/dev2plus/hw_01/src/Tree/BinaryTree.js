@@ -1,6 +1,5 @@
 const BinaryNode = require("../Node/BinaryNode");
 const { Tree } = require("./Tree");
-const utils = require("../utils/utils");
 
 /**
  * Binary tree.
@@ -16,7 +15,6 @@ class BinaryTree extends Tree {
 
   insert(data) {
     this._root = new BinaryNode(data.value);
-
     this._insertNode(this._root, data);
   }
 
