@@ -120,6 +120,7 @@ test("BinaryTree should have a findNodes method", () => {
   const BST = new BinaryTree();
   BST.insert(mockDataSet);
   let expected = JSON.stringify(BST.findNodes("name", "Mary Williams")[0]);
+  /* eslint-disable-next-line */
   expect(`{"name":"Mary Williams","salary":7}`).toEqual(expected);
 
   expect(BST.findNodes("name", "Mary").length).toEqual(0);
