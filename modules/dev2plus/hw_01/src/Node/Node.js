@@ -9,8 +9,8 @@
  * @param {Node} parent Parent of the node.
  */
 class Node {
-  constructor(value, left = null, right = null, parent = null) {
-    this.data = value;
+  constructor(data, left = null, right = null, parent = null) {
+    this.data = data;
     this.left = left;
     this.right = right;
     this.parent = parent;
@@ -18,7 +18,7 @@ class Node {
 
   getValue() {
     return {
-      value: this._value,
+      data: this.data,
     };
   }
 }

@@ -1,4 +1,4 @@
-const BinaryNode = require("../Node/BinaryNode");
+const Node = require("../Node/Node");
 const { Tree } = require("./Tree");
 
 /**
@@ -14,14 +14,14 @@ class BinaryTree extends Tree {
   }
 
   insert(data) {
-    this._root = new BinaryNode(data.value);
-    this._insertNode(this._root, data);
+    this.root = new Node(data.value);
+    this._insertNode(this.root, data);
   }
 
   _insertNode(node, data) {
     if (data.leftChild) {
       if (!node.left) {
-        node.left = new BinaryNode(data.leftChild.value);
+        node.left = new Node(data.leftChild.value);
         this._insertNode(node.left, data.leftChild);
       } else {
         this._insertNode(node.left, data.leftChild);
@@ -29,7 +29,7 @@ class BinaryTree extends Tree {
     }
     if (data.rightChild) {
       if (!node.right) {
-        node.right = new BinaryNode(data.rightChild.value);
+        node.right = new Node(data.rightChild.value);
         this._insertNode(node.right, data.rightChild);
       } else {
         this._insertNode(node.right, data.rightChild);
@@ -39,7 +39,7 @@ class BinaryTree extends Tree {
 
   inOrder() {
     const result = [];
-    const node = this._root;
+    const node = this.root;
     const traverse = (node) => {
       node.left && traverse(node.left);
       result.push(node.data);
@@ -51,7 +51,7 @@ class BinaryTree extends Tree {
 
   postOrder() {
     const result = [];
-    const node = this._root;
+    const node = this.root;
     const traverse = function (node) {
       node.left && traverse(node.left);
       node.right && traverse(node.right);
@@ -63,7 +63,7 @@ class BinaryTree extends Tree {
 
   preOrder() {
     const result = [];
-    const node = this._root;
+    const node = this.root;
     const traverse = function (node) {
       result.push(node.data);
       node.left && traverse(node.left);

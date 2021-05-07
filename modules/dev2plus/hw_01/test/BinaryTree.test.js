@@ -1,4 +1,4 @@
-const BinaryNode = require("../src/Node/BinaryNode");
+const BinaryNode = require("../src/Node/Node");
 const { Tree } = require("../src/Tree/Tree");
 const dataSet = require("../src/assets/dataSet");
 const { BinaryTree } = require("../src/Tree/BinaryTree");
@@ -55,13 +55,14 @@ test("BinaryTree obj should be an extension of the Tree", () => {
 });
 
 test("BinaryTree should have an insert method", () => {
-  const BinarySTree = new BinaryTree();
-  BinarySTree.insert(mockDataSet);
+  const BST = new BinaryTree();
+  BST.insert(mockDataSet);
   const expected = {
     name: "James Smith",
     salary: 15,
   };
-  expect(BinarySTree.getTree().data).toEqual(expected);
+  const result = BST.getTree().data;
+  expect(result).toEqual(expected);
 });
 
 test("BinaryTree obj should have a postOrder method and check items", () => {

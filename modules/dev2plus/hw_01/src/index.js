@@ -1,12 +1,18 @@
 const dataSet = require("./assets/dataSet");
 const { BinaryTree, sortBySalary, sortByName } = require("./Tree/BinaryTree");
+const { Node } = require("./Node/Node");
+const { Tree } = require("./Tree/Tree");
 const utils = require("./utils/utils");
+
+/*const STree = new Node("");
+console.log(STree.getValue());*/
 
 const BinarySTree = new BinaryTree();
 
 BinarySTree.insert(dataSet);
 
-//console.log(BinarySTree.getTree());
+console.log(BinarySTree.getTree());
+
 utils.timeMeasure("start", "inOrder");
 console.log(BinarySTree.inOrder());
 utils.timeMeasure("stop", "inOrder");

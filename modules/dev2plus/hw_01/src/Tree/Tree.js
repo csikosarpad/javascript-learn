@@ -2,12 +2,12 @@ const Node = require("../Node/Node");
 
 class Tree {
   constructor(name = "") {
-    this._name = name;
-    this._root = null;
+    this.name = name;
+    this.root = null;
   }
 
   getTree() {
-    return this._root;
+    return this.root;
   }
 }
 
