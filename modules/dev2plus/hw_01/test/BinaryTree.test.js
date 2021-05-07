@@ -49,11 +49,6 @@ test("BinaryTree obj should be an extension of the Tree", () => {
   expect(BST instanceof Tree).toBe(true);
 });
 
-test("BinaryTree obj should be an extension of the Tree", () => {
-  const BST = new BinaryTree();
-  expect(BST instanceof Tree).toBe(true);
-});
-
 test("BinaryTree should have an insert method", () => {
   const BST = new BinaryTree();
   BST.insert(mockDataSet);
