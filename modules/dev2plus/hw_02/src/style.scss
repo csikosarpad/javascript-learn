@@ -1,0 +1,232 @@
+$site-font: sans-serif;
+$site-primary-color: #000;
+$site-secondary-color: #3e6f9e;
+$site-link-color: #000;
+$site-link-hover-color: #3e6f9e;
+$site-bgcolor: #fff;
+$site-content-bgcolor: #f8f8f8;
+
+$extra-bgcolor: rgba(127, 0, 0, 0.1);
+$extra-color: #fff;
+$extra-shadow-color: rgba(0, 0, 0, 0.1);
+$extra-bgcolor-desktop: rgba(0, 0, 127, 0.1);
+
+body {
+    font-family: $site-font;
+    color: $site-primary-color;
+    background-color: $site-bgcolor;
+    margin: 0;
+    padding: 0;
+
+    &:before {
+        content: 'extra small';
+        position: fixed;
+        right: -115px;
+        top: 15px;
+        display: block;
+        width: 300px;
+        margin: 0 auto;
+        background: $extra-bgcolor;
+        color: $extra-color;
+        text-align: center;
+        font: normal 16px/30px Arial;
+        transform: rotate(45deg);
+        box-shadow: 0 0 10px $extra-shadow-color;
+        text-shadow: 0 0 3px $extra-shadow-color;
+    }
+
+    fieldset {
+        border: 0;
+    }
+
+    .spotify-container {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+
+        .spotify-icon {
+            img {
+                width: 100px;
+            }
+        }
+
+        .spotify-form {
+            [type="text"] {
+                border: 1px solid #979797;
+                border-radius: 15px;
+                box-sizing: content-box;
+                padding: 1%;
+                width: 80%;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &.search {
+                    background: url(../img/search-icon.svg) no-repeat 4px 1px;
+                    background-size: contain;
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+
+    .artist,
+    .artist-albums {
+        width: calc(100% - 40px);
+        background-color: $site-content-bgcolor;
+        padding: 20px;
+
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            padding: 0 0 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 0;
+            padding: 0 0 20px;
+        }
+
+        .artist-image {
+            img {
+                width: 100%;
+                box-shadow: 0 0 2px $extra-shadow-color;
+                border-radius: 5px;
+            }
+        }
+
+        .artist-wiki {
+            p {
+                line-height: 1.4;
+            }
+        }
+    }
+
+    .artist-albums {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            li {
+                display: inline-block;
+                vertical-align: top;
+                text-align: left;
+                padding: 0;
+                font-size: 0.8em;
+                width: 33%;
+                margin-bottom: 3em;
+                margin-right: -4px;
+
+                a {
+                    display: block;
+                    text-decoration: none;
+                    color: $site-link-color;
+                    padding: 0;
+                    margin: 0 10% 0 0;
+
+                    &:hover {
+                        color: $site-link-hover-color;
+                    }
+
+                    span {
+                        color: $site-secondary-color;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+}
+
+/* tablet */
+@media (min-width: 375px) {
+    body {
+
+        &:before {
+            content: 'mobile';
+        }
+
+        .artist-albums {
+            ul {
+                li {
+                    &:nth-child(3n) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* desktop */
+@media (min-width: 720px) {
+    body {
+        &:before {
+            content: 'desktop';
+            background: $extra-bgcolor-desktop;
+        }
+
+        .artist {
+            display: inline-block;
+            vertical-align: top;
+
+            .artist-image {
+                margin-right: -4px;
+            }
+
+            .artist-image,
+            .artist-wiki {
+                width: 49%;
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .artist-wiki {
+                width: calc(49% - 20px);
+                padding-left: 20px;
+            }
+        }
+
+        .spotify-container {
+            .spotify-icon {
+                text-align: left;
+                margin-left: 10px;
+            }
+
+            .spotify-icon,
+            .spotify-form {
+                display: inline-block;
+                width: 49%;
+                vertical-align: top;
+                margin: 0;
+                padding: 0;
+            }
+
+        }
+
+        .artist-albums {
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+
+                li {
+                    width: 20%;
+                    margin-right: -4px;
+
+                    &:nth-child(3n) {
+                        margin-right: -4px;
+                    }
+                }
+            }
+        }
+
+    }
+}
