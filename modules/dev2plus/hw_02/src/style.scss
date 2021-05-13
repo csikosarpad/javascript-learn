@@ -10,6 +10,8 @@ $extra-bgcolor: rgba(127, 0, 0, 0.1);
 $extra-color: #fff;
 $extra-shadow-color: rgba(0, 0, 0, 0.1);
 $extra-bgcolor-desktop: rgba(0, 0, 127, 0.1);
+$extra-bgcolor-desktop-large: rgba(0, 127, 127, 0.1);
+$extra-color-desktop-large: rgba(0, 0, 0, 0.5);
 
 body {
     font-family: $site-font;
@@ -37,6 +39,11 @@ body {
 
     fieldset {
         border: 0;
+    }
+
+    .container {
+        max-width: 1024px;
+        margin: 0 auto;
     }
 
     .spotify-container {
@@ -228,5 +235,15 @@ body {
             }
         }
 
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        &:before {
+            content: '1024';
+            color: $extra-color-desktop-large;
+            background: $extra-bgcolor-desktop-large;
+        }
     }
 }
