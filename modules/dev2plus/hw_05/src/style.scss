@@ -1,0 +1,73 @@
+$font: sans-serif;
+$primary-color: #3e6f9e;
+$containerBoxBorder: 1px solid rgba(255, 255, 255, 1);
+$containerBoxBg: #263238;
+$border-color: #3e6f9e;
+$bgcolor: rgba(0, 0, 0, 0.2);
+$disabledBg: rgba(0, 0, 0, 0.2);
+$disabledColor: rgba(127, 127, 127, 0.8);
+
+body {
+    font-family: $font;
+    color: $primary-color;
+    background-color: $bgcolor;
+    text-align: center;
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+
+    #mediacontent {
+        button {
+            border: 1px solid $border-color;
+            font-size: 1em;
+        }
+
+        video,
+        canvas {
+            border: $containerBoxBorder;
+            background: $containerBoxBg;
+            height: 200px;
+        }
+
+        .capturedPhotos {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            overflow-x: scroll;
+
+            .takedPhotoContainer {
+                position: relative;
+
+                button {
+                    cursor: pointer;
+                    position: absolute;
+
+                    &.close {
+                        right: 3%;
+                        top: 1%;
+                        border-radius: 50%;
+                    }
+
+                    &.save {
+                        bottom: 2%;
+                        z-index: 2;
+                        left: 50%;
+                    }
+
+                }
+
+            }
+        }
+
+        :disabled {
+            background: $disabledBg;
+            color: $disabledColor;
+        }
+    }
+}

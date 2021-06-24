@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="english">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="author" content="Arpad Csikos">
+
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+</head>
+
+<body>
+    <h1>Video Capture - example</h1>
+
+    <div id="mediacontent">
+        <video id="camera" autoplay></video>
+        <div class="buttons">
+            <button id="getUserMediaButton">Start Camera</button>
+            <button id="stopCamera" disabled>Stop Camera</button>
+            <button id="takePhotoButton" disabled>Take a Photo</button>
+        </div>
+        <div class="capturedPhotos">
+        </div>
+
+        <div id='root'></div>
+        <div id="output" class="output">
+            <div id="content"></div>
+            <div id="status"></div>
+            <pre id="log"></pre>
+        </div>
+    </div>
+
+</body>
+<script src="src/video.js"></script>
+
+<script>
+
+
+    const ChromeSamples = {
+        log: function () {
+            let line = Array.prototype.slice.call(arguments).map(function (argument) {
+                return typeof argument === 'string' ? argument : JSON.stringify(argument);
+            }).join(' ');
+
+            document.querySelector('#log').textContent += line + '\n';
+        },
+
+        clearLog: function () {
+            document.querySelector('#log').textContent = '';
+        },
+
+        setStatus: function (status) {
+            document.querySelector('#status').textContent = status;
+        },
+
+        setContent: function (newContent) {
+            let content = document.querySelector('#content');
+            while (content.hasChildNodes()) {
+                content.removeChild(content.lastChild);
+            }
+            content.appendChild(newContent);
+        }
+    };
+
+    document
+        .querySelector("#getUserMediaButton")
+        .addEventListener("click", onGetUserMediaButtonClick);
+
+    document
+        .querySelector("#stopCamera")
+        .addEventListener("click", stopCamera);
+
+    document
+        .querySelector("#takePhotoButton")
+        .addEventListener("click", onTakePhotoButtonClick);
+
+
+</script>
+
+</html>
