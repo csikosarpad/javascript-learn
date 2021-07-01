@@ -1,11 +1,62 @@
-import React from 'react'
+import React from "react";
+import menuItems from "./models/menuItems";
+import MenuList from "./components/MenuList";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
-const App = () => {
-    return (
-        <h1>
-            Hello Webpack React
-        </h1>
-    )
+// React Router does not have any opinions about
+// how you should parse URL query strings.
+//
+// If you use simple key=value query strings and
+// you do not need to support IE 11, you can use
+// the browser's built-in URLSearchParams API.
+//
+// If your query strings contain array or object
+// syntax, you'll probably need to bring your own
+// query parsing function.
+
+export default function QueryParamsExample() {
+  return (
+    <Router>
+      <QueryParamsDemo />
+    </Router>
+  );
 }
 
-export default App
+// A custom hook that builds on useLocation to parse
+// the query string for you.
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+function QueryParamsDemo() {
+  let query = useQuery();
+
+  return (
+    <div>
+      <div>
+        <MenuList menuItems={menuItems} />
+        <Child name={query.get("menu")} />
+      </div>
+    </div>
+  );
+}
+
+function Child({ name }) {
+  return (
+    <div>
+      {name ? (
+        <h3>
+          The <code>name</code> in the query string is &quot;{name}
+          &quot;
+        </h3>
+      ) : (
+        <h3>There is no name in the query string</h3>
+      )}
+    </div>
+  );
+}

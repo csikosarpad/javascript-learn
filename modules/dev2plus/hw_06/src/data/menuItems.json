@@ -1,0 +1,20 @@
+[
+  {
+    "id": "soups",
+    "name": "Levesek",
+    "details": [
+      {
+        "id": "vegetables",
+        "name": "Zöldségleves"
+      }
+    ]
+  },
+  {
+    "id": "foods",
+    "name": "Ételek"
+  },
+  {
+    "id": "drinks",
+    "name": "Italok"
+  }
+]
