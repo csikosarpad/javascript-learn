@@ -79,8 +79,10 @@ class AddNewMenu extends Component {
 
   @action
   handleMenuNameChange = (e) => {
+    console.log("value: ", e.target.value);
+    console.log("this: ", this);
     this.newMenuName = e.target.value;
-    this.validateForm();
+    //this.validateForm();
   };
 
   @action
@@ -106,6 +108,7 @@ class AddNewMenu extends Component {
 
   @action
   handleFormSubmit = (e) => {
+    e.preventDefault();
     this.props.store.addMenu({
       name: this.newMenuName,
       description: this.newMenuDescription,
@@ -114,7 +117,6 @@ class AddNewMenu extends Component {
     this.newMenuName = "";
     this.newMenuDescription = "";
     this.newMenuId = "";
-    e.preventDefault();
   };
 }
 
