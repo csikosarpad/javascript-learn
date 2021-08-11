@@ -1,0 +1,20 @@
+[
+  {
+    "id": "beer",
+    "details": {
+      "name": "Sör",
+      "ingredients": ["mi lehet?"],
+      "quantity": "1 üveg",
+      "price": "200"
+    }
+  },
+  {
+    "id": "water",
+    "details": {
+      "name": "Ásványvíz",
+      "ingredients": ["buborék", "víz"],
+      "quantity": "1 üveg",
+      "price": "100"
+    }
+  }
+]

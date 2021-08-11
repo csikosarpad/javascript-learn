@@ -1,0 +1,31 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;1,300&display=swap');
+$siteFont: 'Mer riweather Sans',
+sans-serif;
+
+$siteBg: rgb(149 157 175 / 40%);
+$siteColor: #000;
+$menuitemsColor: #000;
+$menuitemsColorNew: #080;
+
+body {
+    background-color: $siteBg;
+    font-family: $siteFont;
+
+    .topnavigation {
+        .navbar-nav {
+            background: #fff;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+        }
+
+        .addmenu-item {
+            font-size: 1em;
+            color: $menuitemsColorNew;
+        }
+    }
+
+
+    .container {
+        padding: 10px;
+    }
+}
